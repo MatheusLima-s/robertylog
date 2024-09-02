@@ -1,0 +1,66 @@
+/* Reset básico */
+* { 
+    background-color: #031932;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do dashboard */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.titulo {
+    margin-top: 60px;
+    color: #fff;
+    margin-bottom: 40px; /* Ajuste o espaçamento inferior do título */
+    display: inline-block; /* Torna o elemento um bloco em linha para que a linha possa ser do tamanho do texto */
+    position: relative; /* Necessário para o posicionamento da linha com ::after */
+}
+
+/* Adicionando a linha abaixo do texto */
+.titulo::after {
+    content: ''; /* Cria o pseudo-elemento */
+    display: block; /* Torna a linha um bloco que quebra após o texto */
+    width: 100%; /* Faz a linha ter o mesmo tamanho que o texto */
+    height: 2px; /* Espessura da linha */
+    background-color: #fff; /* Cor da linha */
+    margin-top: 10px; /* Espaçamento acima da linha */
+}
+
+/* Estilo do contêiner dos botões */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 35px;
+}
+
+/* Estilo dos botões */
+button {
+    margin-top: 0; /* Remova ou reduza a margem superior dos botões */
+    padding: 15px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #0853a3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    color: #333;
+    background-color: #fff;
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 600px) {
+    .button-container {
+        grid-template-columns: 1fr;
+    }
+}
