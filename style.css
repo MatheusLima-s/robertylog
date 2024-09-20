@@ -7,42 +7,56 @@
     font-family: Arial, sans-serif;
 }
 
+body, html {
+    width: 100%; /* Garante que o body ocupe 100% da largura */
+    height: 100%; /* Garante que o body ocupe 100% da altura */
+    overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
 /* Estilo do dashboard */
 .dashboard {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
     text-align: center;
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
+}
+
+img {
+    max-width: 100%; /* Faz a imagem se ajustar ao tamanho da tela */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem */
 }
 
 .titulo {
     margin-top: 60px;
     color: #fff;
-    margin-bottom: 40px; /* Ajuste o espaçamento inferior do título */
-    display: inline-block; /* Torna o elemento um bloco em linha para que a linha possa ser do tamanho do texto */
-    position: relative; /* Necessário para o posicionamento da linha com ::after */
+    margin-bottom: 40px; 
+    display: inline-block;
+    position: relative;
 }
 
-/* Adicionando a linha abaixo do texto */
 .titulo::after {
-    content: ''; /* Cria o pseudo-elemento */
-    display: block; /* Torna a linha um bloco que quebra após o texto */
-    width: 100%; /* Faz a linha ter o mesmo tamanho que o texto */
-    height: 2px; /* Espessura da linha */
-    background-color: #fff; /* Cor da linha */
-    margin-top: 10px; /* Espaçamento acima da linha */
+    content: ''; 
+    display: block; 
+    width: 100%; 
+    height: 2px;
+    background-color: #fff;
+    margin-top: 10px;
 }
 
 /* Estilo do contêiner dos botões */
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta para múltiplas colunas */
     gap: 35px;
+    width: 100%;
+    margin: 0 auto; /* Centraliza o contêiner */
 }
 
 /* Estilo dos botões */
 button {
-    margin-top: 0; /* Remova ou reduza a margem superior dos botões */
     padding: 15px 20px;
     font-size: 1em;
     border: none;
@@ -51,6 +65,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%; /* Garante que os botões ocupem toda a largura do contêiner */
 }
 
 button:hover {
@@ -58,21 +73,44 @@ button:hover {
     background-color: #fff;
 }
 
-/* Estilo responsivo para telas menores */
+/* Responsivo para telas menores */
 @media screen and (max-width: 500px) {
-    
-    .dashboard{
+    body, html {
+        overflow-x: hidden; /* Remove a rolagem horizontal */
+        padding: 0;
+        margin: 0;
     }
 
-    img{
-        margin-top: 30px;
+    .titulo {
+        font-size: 30pxpx;
+        margin-bottom: 40px;
+    }
+
+    .dashboard {
+        padding: 0;
         width: 100%;
-        display: flex;
+        max-width: 100%;
     }
 
-    .button-container{
+    img {
+        margin-top: 30px;
         align-items: center;
+        width: 350px; /* Garante que a imagem se ajuste ao tamanho da tela */
+        height: auto;
     }
 
-   
+    .button-container {
+        display: grid;
+        width: 5px;
+        padding: 0 20px;
+        grid-template-columns: 1fr; /* Força uma única coluna em telas pequenas */
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto; /* Centraliza o contêiner de botões */
+    }
+
+    button {
+        margin-bottom: 10px;
+        width: 100%; /* Garante que os botões ocupem toda a largura */
+    }
 }
